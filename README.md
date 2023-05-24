@@ -1,8 +1,6 @@
 # Install
 ```
 git clone https://github.com/ImJoke/nmap-initial-scan
-mv nmap-initial-scan/initial.py .
-rm -rf nmap-initial-scan
 ```
 # Usage
 ```sh
