@@ -43,7 +43,7 @@ options:
   -o, --output   Output path
 ```
 # Supported version
-Python ≥ 3.x.x
+- Python ≥ 3.x.x
 
 #  TODO
 - [ ] Support for domain
