@@ -1,6 +1,6 @@
 # Install
 ```
-git clone https://github.com/ImJoke/nmap-initial-scan
+git clone --depth=1 https://github.com/ImJoke/nmap-initial-scan
 ```
 # Usage
 ```sh
