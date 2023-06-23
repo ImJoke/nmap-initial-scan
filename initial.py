@@ -43,7 +43,7 @@ args.Pn = ' -Pn' if args.Pn else ''
 args.min_rate = '' if args.min_rate == None else f' --min-rate {args.min_rate}'
 args.output = args.output if args.output.endswith('/') else args.output + '/'
 
-if not path.isdir(args.output) and args.output == '/tmp/nmap/':
+if not path.isdir(args.output) and not args.output == '/tmp/nmap/':
     raise ValueError("The directory doesn't exist.")
 else :
     mkdir(args.output)
