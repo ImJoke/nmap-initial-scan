@@ -7,7 +7,7 @@ git clone --depth=1 https://github.com/ImJoke/nmap-initial-scan
 python initial.py 192.168.0.1 -s
 ```
 ```sh
-python initial.py 192.168.0.1 -s -v -Pn -p- --min-rate 5000
+python initial.py 192.168.0.1 -s -v -Pn -p0 --min-rate 5000
 ```
 ```sh
 python initial.py 192.168.0.1 -s -vvv --min-rate 5000
@@ -32,7 +32,7 @@ positional arguments:
 
 options:
   -h, --help     show this help message and exit
-  -p, --port     Port
+  -p, --port     Port to scan (`-p 0` equal to `-p-`)
   -T<0-5>        Set timing template (higher is faster)
   -v, --verbose  Verbose
   -s, --status   Get status information for debugging
