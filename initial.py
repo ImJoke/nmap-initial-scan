@@ -43,10 +43,10 @@ args.Pn = ' -Pn' if args.Pn else ''
 args.min_rate = '' if args.min_rate == None else f' --min-rate {args.min_rate}'
 args.output = args.output if args.output.endswith('/') else args.output + '/'
 
-if not path.isdir(args.output):
-    if args.output == '/tmp/nmap/':
-        mkdir(args.output)
+if not path.isdir(args.output) and args.output == '/tmp/nmap/':
     raise ValueError("The directory doesn't exist.")
+else :
+    mkdir(args.output)
 
 if args.status:
     print(f'Private network' if ipaddress.ip_address(args.IP).is_private else 'Public network' if ipaddress.ip_address(args.IP).is_global else '')
