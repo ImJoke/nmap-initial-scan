@@ -1,5 +1,5 @@
 import argparse, ipaddress
-from os import system, popen
+from os import system, popen, path, mkdir
 
 class CustomFormatter(argparse.HelpFormatter):
     def _format_action_invocation(self, action):
@@ -21,7 +21,7 @@ class CustomFormatter(argparse.HelpFormatter):
 
 parser = argparse.ArgumentParser(usage='usage: initial.py [-h] [-p <1-65535>] [-T<0-5>] [-v] [-s] [-Pn] [--min-rate <number>] IP', formatter_class=CustomFormatter, description='Modern initial scan with nmap')
 parser.add_argument('IP', help='Target IP address')
-parser.add_argument('-p', '--port', type=int, metavar='', help='Port to scan')
+parser.add_argument('-p', '--port', type=int, metavar='', help='Port to scan (`-p 0` equal to `-p-`)')
 parser.add_argument('-T', action='store', type=int, metavar='<0-5>', help='Set timing template (higher is faster)')
 parser.add_argument('-v', '--verbose', action='count', help='Verbose')
 parser.add_argument('-s', '--status', action='store_true', help='Get status information for debugging')
@@ -44,6 +44,8 @@ args.min_rate = '' if args.min_rate == None else f' --min-rate {args.min_rate}'
 args.output = args.output if args.output.endswith('/') else args.output + '/'
 
 if not path.isdir(args.output):
+    if args.output == '/tmp/nmap/':
+        mkdir(args.output)
     raise ValueError("The directory doesn't exist.")
 
 if args.status:
